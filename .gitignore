@@ -1,0 +1,3 @@
+venv/
+_pycache__/
+data/df_qcat_filtrado.csv

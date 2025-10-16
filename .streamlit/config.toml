@@ -1,0 +1,14 @@
+[theme]
+base="dark"
+primaryColor="#5865F2"
+backgroundColor="#1A1A1A"
+secondaryBackgroundColor="#262626"
+
+[theme.sidebar]
+secondaryBackgroundColor="skyBlue"
+borderColor="#999999"
+baseRadius="none"
+
+[server]
+headless = true
+runOnSave = true
