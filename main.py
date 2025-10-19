@@ -7,34 +7,28 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-grupo_1 = [
-    st.Page("pages/course_overview.py", title="Resumen del Curso", icon="📚"),
-    st.Page("pages/1_Introduccion.py", title="Modulo 1: Introducción", icon="👋"),
-    st.Page("pages/2_Resumen_Ejecutivo.py", title="Modulo 2: Resumen Ejecutivo", icon="📝"),
-    st.Page("pages/3_Objetivos.py", title="Modulo 3: Objetivo general y específicos", icon="🎯"),
-    st.Page("pages/4_Alcance_y_Problema.py", title="Modulo 4: Alcance y Identificación del problema", icon="🚀"),
-    st.Page("pages/5_Contexto_y_Antecedentes.py", title="Modulo 5: Contexto y Antecedentes", icon="🌍"), 
-    st.Page("pages/6_Definiciones_y_Terminos.py", title="Modulo 6: Definiciones y Términos", icon="📖"), 
-    st.Page("pages/7_Metodologia.py", title="Modulo 7: Metodología", icon="🛠️"), 
-    st.Page("pages/8_Acceso_y_Recoleccion.py", title="Modulo 8: Acceso y Recolección de Datos", icon="📊"), 
-    st.Page("pages/9_Formato_y_Estructura.py", title="Modulo 9: Formato y Estructura de Datos", icon="🗂️"), 
-    st.Page("pages/10_Procesamiento_y_Resultados.py", title="Modulo 10: Procesamiento y Resultados de Datos", icon="⚙️"), 
-    st.Page("pages/11_Discusion_y_Conclusiones.py", title="Modulo 11: Discusión y Conclusiónes", icon="💡"), 
-    st.Page("pages/12_Referencias_Bibliograficas.py", title="Modulo 12: Referencias Bibliográficas", icon="📚"),
+resumen = [
+    st.Page("pages/Contexto.py", title="Modulo 1: Contexto", icon="🌍"),
+    st.Page("pages/Introduccion.py", title="Modulo 2: Introducción", icon="👋"),
+    st.Page("pages/Objetivos.py", title="Modulo 3: Objetivo general y específico", icon="🎯"),
+    st.Page("pages/Metodologia.py", title="Modulo 4: Metodología", icon="🛠️"), 
 ]
 
-datasets = [
-    st.Page("pages/graphics.py", title="Graficos", icon="📈"),
+dataset = [
+    st.Page("pages/Resumen_Estadistico.py", title="Informe Estadistico", icon="📑"),
+    st.Page("pages/Graficos.py", title="Graficos", icon="📈"),
+    st.Page("pages/Discusion_y_Analisis.py", title="Modulo 5: Discusion y Analisis", icon="🧐"),
+    st.Page("pages/Conclusiones_y_Recomendaciones.py", title="Modulo 6: Conclusiones y Recomendaciones", icon="✅"),
+    st.Page("pages/Referencias_Bibliograficas.py", title="Modulo 7: Referencias Bibliográficas", icon="📚"),
 ]
 
 extra = [
-    st.Page("pages/contact.py", title="Contacto", icon="📞"),
-    st.Page("pages/about.py", title="Acerca de", icon="🌐"),
+    st.Page("pages/Contacto.py", title="Contacto", icon="📞"),
 ]
 
 pages = {
-    "💻 Grupo_1": grupo_1,
-    "📂 Recursos": datasets,
+    "💻 Resumen": resumen,
+    "📂 Presentación": dataset,
     "⚙️ Otros": extra
 }
 

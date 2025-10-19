@@ -1,47 +1,35 @@
-import pandas as pd
 import streamlit as st
+import polars as pl
+from components.msg_temporal import msg_temp
+from components.distribucion_tipos import distribucion_tipos
 
-def generar_informe_dataset(df: pd.DataFrame):
-    st.markdown("## 📊 INFORME DEL DATASET")
-    st.write(f"**Tipo de objeto:** `{type(df)}`")
+ruta_csv = "data/df_qcat_filtrado.csv"
 
-    # Dimensiones
-    filas = 1499806
-    columnas = 20
-    st.write("**Dimensiones del dataset:**")
-    st.markdown(f"""
-    - Número de filas: **{filas}**  
-    - Número de columnas: **{columnas}**
-    """)
-
-    # Tipos de datos
-    st.markdown("### 🧩 Columnas y tipos de datos:")
-    tipos = pd.DataFrame(df.dtypes, columns=["Tipo de Dato"])
-    tipos.index.name = "Columna"
-    st.dataframe(tipos)
-
-    # Registro de vacíos
-    vacios = df.isnull().sum()
-    porcentaje_vacios = (vacios / len(df) * 100).round(2)
-    resumen_vacios = pd.DataFrame({
-        "Columna": df.columns,
-        "Registros vacíos": vacios,
-        "(%)": porcentaje_vacios,
-        "Tipo de Dato": df.dtypes.astype(str)
-    }).set_index("Columna")
+def generar_informe_dataset(ruta_csv: str):
+    df_lazy = pl.scan_csv(ruta_csv)
     
-    st.markdown("### 📉 Registros vacíos por columna:")
-    st.dataframe(resumen_vacios)
+    st.title("INFORME DEL DATASET")
 
-    # Duplicados
-    duplicados = df.duplicated().sum()
-    porcentaje_duplicados = round((duplicados / len(df)) * 100, 2)
-    st.markdown("### 🔁 Registros duplicados:")
-    st.write(f"- Cantidad: **{duplicados}**")
-    st.write(f"- Porcentaje: **{porcentaje_duplicados}%**")
+    st.subheader("Vista previa:")
+    df_preview = df_lazy.collect().head(10)
+    st.dataframe(df_preview, width="content", height=400)
 
-    # Estadísticas numéricas
-    st.markdown("### 📈 Estadísticas descriptivas:")
-    st.dataframe(df.describe().T)
+    st.subheader("Información general:")
+    schema = df_lazy.collect_schema()
+    columnas = list(schema.keys())
+    n_columnas = len(columnas)
+    n_filas = df_lazy.select(pl.count()).collect().item()
+    duplicados = 0
+    a, b = st.columns(2)
+    c, d = st.columns(2)
+    
+    a.metric("Número de filas", n_filas, delta= "-1.181.869 registros menos", border=True)
+    b.metric("Número de columnas", n_columnas, delta= "7 columnas nuevas", border=True)
+    c.metric("Numero de nulos", 0, delta_color="off", delta= "0", border=True)
+    d.metric("Numero de duplicados", duplicados, delta_color="off", delta="0" , border=True)
+    
+    st.divider()
 
-    st.success("✅ Informe generado correctamente.")
+    distribucion_tipos(ruta_csv)
+    
+    msg_temp("✅ Informe generado correctamente", tipo="success", duracion=2)
