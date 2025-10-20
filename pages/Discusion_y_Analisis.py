@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 
+from components.boton_flotante import Boton_flotante
+
 st.title("DISCUSIÓN Y ANÁLISIS")
 st.header("Hallazgos Principales")
 
@@ -51,3 +53,5 @@ st.markdown("""
     - **Grava:** Terreno granular con buena fricción; fuerzas delanteras cíclicas (≈18–25 N) y traseras regulares (≈78–86 N). Buena tracción con microajustes para estabilidad.  
     - **Tierra:** Superficie semiblanda y bien compactada; fuerzas equilibradas (delanteras ≈18–26 N, traseras ≈76–83 N) y patrón estable. Ofrece equilibrio entre adherencia y absorción.  
     """)
+st.divider()
+Boton_flotante()

@@ -1,4 +1,5 @@
 import streamlit as st
+from components.boton_flotante import Boton_flotante
 
 st.title("METODOLOGIA")
 st.subheader("Diseño de la investigación")
@@ -55,3 +56,4 @@ st.markdown("""
 - Folium  
 - Streamlit.components.v1  
 """)
+Boton_flotante()

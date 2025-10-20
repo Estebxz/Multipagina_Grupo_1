@@ -1,35 +1,12 @@
 import streamlit as st
-from PIL import Image
-import base64
-from io import BytesIO
-
-# --- Función para convertir imagen PIL o ruta a base64 ---
-def image_to_base64(image_path):
-    if isinstance(image_path, Image.Image):
-        img = image_path
-    else:
-        img = Image.open(image_path)
-    buffer = BytesIO()
-    img.save(buffer, format="WEBP")
-    return base64.b64encode(buffer.getvalue()).decode()
-
-image_path = "public/DyRET.webp"
-img_base64 = image_to_base64(image_path)
+from components.boton_flotante import Boton_flotante
 
 st.title("INTRODUCCIÓN Y PLANTEAMIENTO DEL PROBLEMA")
 
-st.markdown(f"""
-    <div style='text-align: center; margin-top: 20px;'>
-        <img src='data:image/webp;base64,{img_base64}' 
-             style='width:400px;' alt='DyRET Robot'/>
-        <p style='font-size:14px; margin-top:5px;'>
-            <a href='https://theconversation.com/shape-shifting-robots-in-the-wild-the-dyret-robot-can-rearrange-its-body-to-walk-in-new-environments-157130'
-               target='_blank' style='color:#1c77f8; text-decoration:none;'>
-               Fuente: Ilustración del robot DyRET realizada por cuenta propia.
-            </a>
-        </p>
-    </div>
-""", unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    st.image("public/DyRet.webp", caption="Ilustracion grafica del robot DyRET", width="content")
+
 st.subheader("Contexto")
 st.markdown("""
 Los **robots cuadrúpedos bioinspirados** representan un campo de rápido desarrollo en la robótica, destacando por su capacidad para adaptarse a terrenos complejos y realizar tareas en ambientes desafiantes.
@@ -48,3 +25,4 @@ Para lograr una interacción precisa con su entorno, el robot está equipado con
     * Un **acelerómetro** de tres ejes para registrar aceleraciones lineales.
     * Un **magnetómetro** de tres ejes que proporciona la orientación absoluta del robot con respecto al campo magnético terrestre.
 """)
+Boton_flotante()

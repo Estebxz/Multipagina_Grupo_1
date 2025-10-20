@@ -1,5 +1,5 @@
 import streamlit as st
-from components.star_github import footer_component
+from components.boton_flotante import Boton_flotante
 
 st.title("REFERENCIAS BIBLIOGRÁFICAS")
 st.header("Fuentes y Materiales Consultados")
@@ -64,4 +64,4 @@ School of Computer Science, Carnegie Mellon University.
 [https://robots.stanford.edu/papers/thrun.mapping-tr.pdf](https://robots.stanford.edu/papers/thrun.mapping-tr.pdf)
 """)
 
-footer_component()
+Boton_flotante()

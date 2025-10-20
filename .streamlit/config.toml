@@ -9,7 +9,3 @@ textColor = "#FAFAFA"
 secondaryBackgroundColor="#000000ff"
 borderColor="#999999"
 baseRadius="none"
-
-[server]
-headless = true
-runOnSave = true

@@ -7,8 +7,6 @@ ruta_csv = "data/df_qcat_filtrado.csv"
 
 def generar_informe_dataset(ruta_csv: str):
     df_lazy = pl.scan_csv(ruta_csv)
-    
-    st.title("INFORME DEL DATASET")
 
     st.subheader("Vista previa:")
     df_preview = df_lazy.collect().head(10)
@@ -31,5 +29,4 @@ def generar_informe_dataset(ruta_csv: str):
     st.divider()
 
     distribucion_tipos(ruta_csv)
-    
     msg_temp("✅ Informe generado correctamente", tipo="success", duracion=2)

@@ -3,7 +3,7 @@ import streamlit as st
 from components.mapa import mapa_interactivo
 from components.plano import plano_tridimensional
 from components.tabla_superficies import tabla_superficies
-from components.star_github import footer_component
+from components.boton_flotante import Boton_flotante
 
 st.title("DyRET LEGGED ROBOT TERRAIN CLASSIFICATION DATASET")
 mapa_interactivo()
@@ -78,10 +78,10 @@ with col3:
     Esta fase se centra en asegurar la **calidad** del dataset y realizar un Análisis Exploratorio (EDA) para identificar patrones y anomalías.
     """)
     container_hito2.link_button(
-        label="Hito 2",
+        label="Haz clic",
         url="https://colab.research.google.com/drive/1uczDqJNx-5RfNXIooJ5xJSgQ4Cw2fzrs",
         type="primary", 
-        help="Haz clic para abrir el cuaderno de exploración de datos en una nueva pestaña"
+        help="Haz clic para abrir el Hito 2"
     )
     
 with col4:
@@ -93,10 +93,10 @@ with col4:
     """)
     
     container_hito3.link_button(
-        label="Hito 3",
+        label="Haz clic",
         url="https://colab.research.google.com/drive/1qRZ1FP8FBRl9PFz39juQCs_E4Itvn2lQ",
         type="primary", 
-        help="Haz clic para abrir el cuaderno de exploración de datos en una nueva pestaña"
+        help="Haz clic para abrir el Hito 3"
     )
 
-footer_component()
+Boton_flotante()

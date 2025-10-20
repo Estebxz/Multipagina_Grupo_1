@@ -1,4 +1,5 @@
 import streamlit as st
+from components.boton_flotante import Boton_flotante
 
 st.title("CONCLUSIONES Y RECOMENDACIONES")
 st.subheader("Resumen de hallazgos:")
@@ -17,3 +18,6 @@ También se presenta una **marcha coordinada diagonal**, ya que en las gráficas
 """)
 st.subheader("Recomendaciones para trabajos futuros:")
 st.markdown("Teniendo en cuenta esto, se recomienda verificar la **calibración de actuadores traseros**, especialmente el derecho, para evitar sobrecarga a largo plazo y asegurar una distribución más uniforme de las fuerzas.")
+st.divider()
+
+Boton_flotante()

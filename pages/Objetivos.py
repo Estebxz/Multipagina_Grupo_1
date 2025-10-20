@@ -1,4 +1,5 @@
 import streamlit as st
+from components.boton_flotante import Boton_flotante
 
 st.title("OBJETIVOS")
 st.subheader("Objetivo General")
@@ -10,3 +11,5 @@ st.markdown("""
 - Examinar el comportamiento de los componentes de la fuerza (Fx, Fy, Fz) en distintas muestras del sensor *raw*.  
 - Definir una hipótesis respecto a la existencia de datos atípicos.  
 """)
+
+Boton_flotante()

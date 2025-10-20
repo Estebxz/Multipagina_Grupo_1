@@ -8,10 +8,12 @@ st.set_page_config(
 )
 
 resumen = [
+    st.Page("pages/Presentacion.py", title="Presentacion", icon="📽️"),
     st.Page("pages/Contexto.py", title="Modulo 1: Contexto", icon="🌍"),
     st.Page("pages/Introduccion.py", title="Modulo 2: Introducción", icon="👋"),
     st.Page("pages/Objetivos.py", title="Modulo 3: Objetivo general y específico", icon="🎯"),
     st.Page("pages/Metodologia.py", title="Modulo 4: Metodología", icon="🛠️"), 
+    st.Page("pages/Glosario.py", title="Glosario", icon="📖")
 ]
 
 dataset = [

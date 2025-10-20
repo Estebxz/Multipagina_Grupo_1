@@ -18,12 +18,6 @@ def distribucion_tipos(ruta_csv: str):
     conteo_tipos = info_pd["Tipo de Dato"].value_counts().reset_index()
     conteo_tipos.columns = ["Tipo de Dato", "Cantidad"]
 
-    config = {
-        "displayModeBar": True,
-        "displaylogo": False,
-        "responsive": True
-        }
-        
     fig = px.bar(
         conteo_tipos,
         x="Tipo de Dato",
@@ -47,6 +41,12 @@ def distribucion_tipos(ruta_csv: str):
         margin=dict(l=20, r=20, t=40, b=20)
         )
 
+    config = {
+        "displayModeBar": True,
+        "displaylogo": False,
+        "responsive": True
+        }
+    
     st.plotly_chart(fig, config=config)
 
     if st.toggle("Ver detalle de columnas"):
