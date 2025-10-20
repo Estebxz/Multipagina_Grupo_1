@@ -37,7 +37,7 @@ for i in range(0, len(equipo), 2):
     col1, col2 = st.columns(2)
     for col, miembro in zip([col1, col2], equipo[i:i+2]):
         with col:
-            st.image(miembro["imagen"], width="stretch", clamp=True)
+            st.image(miembro["imagen"], width="stretch")
             st.markdown(
                 f"""
                 <div style="text-align:center;">

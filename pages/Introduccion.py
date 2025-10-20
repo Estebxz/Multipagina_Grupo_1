@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from components.boton_flotante import Boton_flotante
 
@@ -5,7 +6,7 @@ st.title("INTRODUCCIÓN Y PLANTEAMIENTO DEL PROBLEMA")
 
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
-    st.image("public/DyRet.webp", caption="Ilustracion grafica del robot DyRET", width="content")
+    st.image("public/DyRET.jpg", caption="Ilustracion grafica del robot DyRET", width="content", output_format="auto")
 
 st.subheader("Contexto")
 st.markdown("""
